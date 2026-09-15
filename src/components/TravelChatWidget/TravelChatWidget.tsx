@@ -5,6 +5,7 @@ import "./TravelChatWidget.css";
 import { FaPhoneAlt, FaFacebookMessenger } from "react-icons/fa";
 
 import { SiZalo } from "react-icons/si";
+import { contactInfo } from "../../contact";
 
 export default function TravelChatWidget() {
   const [open, setOpen] = useState(false);
@@ -12,17 +13,27 @@ export default function TravelChatWidget() {
   return (
     <>
       <div className="contact-floating">
-        <button className="contact-item phone">
+        <a
+          className="contact-item phone"
+          href={`tel:${contactInfo.phoneHref}`}
+          aria-label={`Call ${contactInfo.phone}`}
+        >
           <FaPhoneAlt />
-        </button>
+        </a>
 
         <button className="contact-item zalo">
           <SiZalo />
         </button>
 
-        <button className="contact-item messenger">
+        <a
+          className="contact-item messenger"
+          href={contactInfo.facebookUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Message 2PAVE Travel on Facebook"
+        >
           <FaFacebookMessenger />
-        </button>
+        </a>
       </div>
 
       <button className="chat-button" onClick={() => setOpen(!open)}>

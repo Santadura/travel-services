@@ -30,6 +30,7 @@ import {
   X,
 } from "lucide-react";
 import { destinations, heroSlides, stories, tours, type Tour } from "./data";
+import { contactInfo } from "./contact";
 import heroFallback from "./assets/hero.png";
 import "./App.css";
 
@@ -132,10 +133,10 @@ function Header() {
     <>
       <div className="utility-bar">
         <div className="container utility-inner">
-          <span>Hanoi · Ho Chi Minh City · Da Nang</span>
+          <span>{contactInfo.address}</span>
           <span>
-            <Phone size={13} /> +84 917 000 000 <i>|</i> <Mail size={13} />{" "}
-            hello@2pave.com
+            <Phone size={13} /> {contactInfo.phone} <i>|</i> <Mail size={13} />{" "}
+            {contactInfo.email}
           </span>
         </div>
       </div>
@@ -230,7 +231,7 @@ function Footer() {
             <a href="#footer" aria-label="Favourite journeys">
               <Heart size={16} />
             </a>
-            <a href="#footer" aria-label="Email 2PAVE">
+            <a href={`mailto:${contactInfo.email}`} aria-label="Email 2PAVE">
               <Mail size={16} />
             </a>
           </div>
@@ -249,14 +250,14 @@ function Footer() {
         </div>
         <div>
           <h3>Say hello</h3>
-          <a href="mailto:hello@2pave.com">
-            <Mail size={15} /> hello@2pave.com
+          <a href={`mailto:${contactInfo.email}`}>
+            <Mail size={15} /> {contactInfo.email}
           </a>
-          <a href="tel:+84917000000">
-            <Phone size={15} /> +84 917 000 000
+          <a href={`tel:${contactInfo.phoneHref}`}>
+            <Phone size={15} /> {contactInfo.phone}
           </a>
           <span>
-            <MapPin size={15} /> Hanoi · Vietnam
+            <MapPin size={15} /> {contactInfo.address}
           </span>
         </div>
       </div>
@@ -2976,23 +2977,23 @@ function Contact() {
               </p>
 
               <div className="contact-methods-v2">
-                <a href="mailto:hello@2pave.com">
+                <a href={`mailto:${contactInfo.email}`}>
                   <span className="contact-method-icon">
                     <Mail size={18} />
                   </span>
                   <span>
                     <small>Email us</small>
-                    <strong>hello@2pave.com</strong>
+                    <strong>{contactInfo.email}</strong>
                   </span>
                   <ArrowRight size={16} />
                 </a>
-                <a href="tel:+84917000000">
+                <a href={`tel:${contactInfo.phoneHref}`}>
                   <span className="contact-method-icon">
                     <Phone size={18} />
                   </span>
                   <span>
                     <small>Call us</small>
-                    <strong>+84 917 000 000</strong>
+                    <strong>{contactInfo.phone}</strong>
                   </span>
                   <ArrowRight size={16} />
                 </a>
@@ -3001,8 +3002,8 @@ function Contact() {
                     <MapPin size={18} />
                   </span>
                   <span>
-                    <small>Our base</small>
-                    <strong>Hanoi · Vietnam</strong>
+                    <small>Our office</small>
+                    <strong>{contactInfo.address}</strong>
                   </span>
                 </div>
               </div>

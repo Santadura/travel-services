@@ -64,6 +64,21 @@ export type Tour = {
 const commonsFile = (fileName: string) =>
   `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(fileName)}?width=1600`;
 
+const localTourImage = (fileName: string) =>
+  `/tours/quy-nhon-da-nang-hoi-an/${encodeURIComponent(fileName)}`;
+
+const quyNhonDaNangHoiAnImages = {
+  daNangOverview: localTourImage("Tổng quan về Đà Nẵng (01) .jpg"),
+  myKhe: localTourImage("Bãi Biển Mỹ Khê (02) . jpg.jpg"),
+  tienSa: localTourImage("Bãi Tiên Sa (02) .jpg"),
+  hanRiver: localTourImage("Cầu Sông Hàn (04) .jpg"),
+  haiVan: localTourImage("Hải Vân Quan (1) .jpg"),
+  hoiAnOverview: localTourImage("Tổng quan về Hội An .jpg"),
+  hoiAnAncientTown: localTourImage("Phố Cổ Hội An (03) .jpg"),
+  hoaiRiver: localTourImage("Sông Hoài (01) .jpg"),
+  lanterns: localTourImage("Đèn hoa đăng (02) .jpg"),
+};
+
 const haLongImage =
   "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1600&q=88";
 const hoiAnImage = commonsFile("Hoi An Ancient Town.jpg");
@@ -85,10 +100,6 @@ const daLatImage = commonsFile("Da Lat - Viet Nam.jpg");
 const canThoImage = commonsFile("Can Tho, Vietnam, Floating Market.jpg");
 const conDaoImage = commonsFile("Condao Photo 1.jpg");
 const daNangImage = commonsFile("Image of Da Nang beach.jpg");
-const myKheImage =
-  "https://ak-d.tripcdn.com/images/1mi6t224x98yq9o6w2FF8.jpg?proc=source";
-const baNaHillsImage =
-  "https://images.unsplash.com/photo-1684784784123-0854fc0eec25?auto=format&fit=crop&w=1600&q=88";
 
 const japanImage =
   "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1600&q=88";
@@ -139,8 +150,15 @@ const coreTours: Tour[] = [
     days: 3,
     price: 3350000,
     category: "Central Vietnam",
-    image: daNangImage,
-    gallery: [daNangImage, hoiAnImage, quyNhonImage],
+    image: quyNhonDaNangHoiAnImages.daNangOverview,
+    gallery: [
+      quyNhonDaNangHoiAnImages.daNangOverview,
+      quyNhonDaNangHoiAnImages.myKhe,
+      quyNhonDaNangHoiAnImages.tienSa,
+      quyNhonDaNangHoiAnImages.hanRiver,
+      quyNhonDaNangHoiAnImages.haiVan,
+      quyNhonDaNangHoiAnImages.hoiAnOverview,
+    ],
     rating: 4.9,
     reviews: 128,
 
@@ -212,7 +230,7 @@ const coreTours: Tour[] = [
         title: "Quy Nhon - Da Nang arrival & city discovery",
         summary: "Coastal arrival, Son Tra views, and Da Nang after dark.",
         story: "Ease into Central Vietnam with a scenic coastal arrival, a quiet moment above the peninsula, and Da Nang sparkling along the Han River after sunset.",
-        image: myKheImage,
+        image: quyNhonDaNangHoiAnImages.myKhe,
         timeline: [
           { time: "06:00 - 12:00", title: "Departure for Da Nang", description: "Gather at Quy Nhon Bus Station and depart for Da Nang." },
           { time: "12:00 - 13:30", title: "Specialty lunch", description: "Enjoy a local lunch in Da Nang city center." },
@@ -235,7 +253,7 @@ const coreTours: Tour[] = [
         title: "Ba Na Hills & Hoi An Ancient Town",
         summary: "Mountain cable cars followed by a lantern-lit Hoi An evening.",
         story: "Today moves from cool mountain air to Hoi An’s warm lantern glow—two of Central Vietnam’s most memorable atmospheres in one day.",
-        image: baNaHillsImage,
+        image: quyNhonDaNangHoiAnImages.haiVan,
         timeline: [
           { time: "06:30 - 07:15", title: "Breakfast at the hotel", description: "Start the day with breakfast before heading west." },
           { time: "07:15 - 08:30", title: "Hai Van Pass transfer", description: "Travel through the pass with a view over Lang Co Bay." },
@@ -260,7 +278,7 @@ const coreTours: Tour[] = [
         title: "Da Nang highlights & departure",
         summary: "Beach moments, Marble Mountains, and the journey home.",
         story: "Take a final slow look at the coast and craft villages before carrying the best parts of Central Vietnam home with you.",
-        image: hoiAnImage,
+        image: quyNhonDaNangHoiAnImages.daNangOverview,
         timeline: [
           { time: "07:00 - 08:00", title: "Breakfast at the hotel", description: "Enjoy a final breakfast in Da Nang." },
           { time: "08:00 - 08:30", title: "Check-out", description: "Check out and place luggage safely on the coach." },
