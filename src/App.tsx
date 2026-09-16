@@ -2559,9 +2559,7 @@ function NewsDetail() {
 }
 function About() {
   const storyImage =
-    tours.find((tour) => tour.destination === "Ha Giang")?.image ||
-    heroSlides[2]?.image ||
-    hoiAnImage;
+    "/tours/quy-nhon-da-nang-hoi-an/Screenshot%202026-09-16%20192457.png";
   const peopleCards = [
     {
       title: "Journey designers",
