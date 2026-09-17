@@ -69,21 +69,20 @@ const localTourImage = (fileName: string) =>
 
 const quyNhonDaNangHoiAnImages = {
   daNangOverview: localTourImage("Tổng quan về Đà Nẵng (01) .jpg"),
-  myKhe: localTourImage("Bãi Biển Mỹ Khê (02) . jpg.jpg"),
-  tienSa: localTourImage("Bãi Tiên Sa (02) .jpg"),
+  myKhe: localTourImage("Bãi tắm 1-2-3 (03) .jpg"),
+  tienSa: localTourImage("Tổng quan Phố cổ Hội An (02) .jpg"),
   hanRiver: localTourImage("Cầu Sông Hàn (04) .jpg"),
-  haiVan: localTourImage("Hải Vân Quan (1) .jpg"),
+  haiVan: localTourImage("Vườn hoa tình yêu Le Jardin d_Amour (03) .jpg"),
   hoiAnOverview: localTourImage("Tổng quan về Hội An .jpg"),
   hoiAnAncientTown: localTourImage("Phố Cổ Hội An (03) .jpg"),
   hoaiRiver: localTourImage("Sông Hoài (01) .jpg"),
   lanterns: localTourImage("Đèn hoa đăng (02) .jpg"),
 };
 
-const haLongImage =
-  "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1600&q=88";
-const hoiAnImage = commonsFile("Hoi An Ancient Town.jpg");
-const sapaImage = commonsFile("Rice terraces in Sapa, Vietnam.jpg");
-const phuQuocImage = commonsFile("Phu Quoc Beach.jpg");
+const haLongImage = commonsFile("Lake Kawaguchiko Sakura Mount Fuji 4.JPG");
+const hoiAnImage = commonsFile("Aks The Reflection Taj Mahal.jpg");
+const sapaImage = commonsFile("Chichen Itza 3.jpg");
+const phuQuocImage = commonsFile("Hoa Đà Lạt.jpg");
 const ninhBinhImage = commonsFile("Trang An, Ninh Binh.jpg");
 const haGiangImage = commonsFile("Hà Giang province landscape.jpg");
 const caoBangImage = commonsFile("Ban Gioc Waterfall.jpg");
@@ -205,23 +204,80 @@ const coreTours: Tour[] = [
     ],
 
     highlightCards: [
-      { icon: "🌅", title: "My Khe at sunset", description: "Swim, stroll, and watch Da Nang soften into evening." },
-      { icon: "🌉", title: "Han River cruise", description: "See the city lights from the water after a seafood dinner." },
-      { icon: "⛰️", title: "Hai Van Pass", description: "Travel one of Vietnam’s most beautiful coastal mountain roads." },
-      { icon: "🏰", title: "Ba Na Hills", description: "Ride the cable car into French Village and cool mountain air." },
-      { icon: "🏮", title: "Hoi An after dark", description: "Wander lantern-lit lanes and take a quiet boat ride on the river." },
+      {
+        icon: "🌅",
+        title: "My Khe at sunset",
+        description: "Swim, stroll, and watch Da Nang soften into evening.",
+      },
+      {
+        icon: "🌉",
+        title: "Han River cruise",
+        description:
+          "See the city lights from the water after a seafood dinner.",
+      },
+      {
+        icon: "⛰️",
+        title: "Hai Van Pass",
+        description:
+          "Travel one of Vietnam’s most beautiful coastal mountain roads.",
+      },
+      {
+        icon: "🏰",
+        title: "Ba Na Hills",
+        description:
+          "Ride the cable car into French Village and cool mountain air.",
+      },
+      {
+        icon: "🏮",
+        title: "Hoi An after dark",
+        description:
+          "Wander lantern-lit lanes and take a quiet boat ride on the river.",
+      },
     ],
 
     policies: [
-      { title: "Cancellation policy", description: "Free changes are supported when available. Cancellation terms are confirmed with your booking before payment." },
-      { title: "Payment policy", description: "Reserve with a deposit, then settle the remaining balance before departure. Your consultant will share the exact schedule." },
-      { title: "Important notes", description: "The itinerary may be adjusted for weather or local operating conditions while preserving the included experiences." },
+      {
+        title: "Cancellation policy",
+        description:
+          "Free changes are supported when available. Cancellation terms are confirmed with your booking before payment.",
+      },
+      {
+        title: "Payment policy",
+        description:
+          "Reserve with a deposit, then settle the remaining balance before departure. Your consultant will share the exact schedule.",
+      },
+      {
+        title: "Important notes",
+        description:
+          "The itinerary may be adjusted for weather or local operating conditions while preserving the included experiences.",
+      },
     ],
 
     travellerReviews: [
-      { initials: "MA", name: "Mai Anh", travelStyle: "Travelled with friends", rating: 5, comment: "A beautifully paced trip—the mountain views, Hoi An at night, and thoughtful care from the guide made every day feel special." },
-      { initials: "TP", name: "Thanh Phuong", travelStyle: "Travelled as a couple", rating: 5, comment: "The itinerary was well organised, with just the right balance of iconic sights, local food, and time to enjoy the coast." },
-      { initials: "HN", name: "Hoang Nam", travelStyle: "Travelled with family", rating: 4, comment: "Comfortable transport, great hotel choices, and enough flexibility for everyone in the family to enjoy the journey." },
+      {
+        initials: "MA",
+        name: "Mai Anh",
+        travelStyle: "Travelled with friends",
+        rating: 5,
+        comment:
+          "A beautifully paced trip—the mountain views, Hoi An at night, and thoughtful care from the guide made every day feel special.",
+      },
+      {
+        initials: "TP",
+        name: "Thanh Phuong",
+        travelStyle: "Travelled as a couple",
+        rating: 5,
+        comment:
+          "The itinerary was well organised, with just the right balance of iconic sights, local food, and time to enjoy the coast.",
+      },
+      {
+        initials: "HN",
+        name: "Hoang Nam",
+        travelStyle: "Travelled with family",
+        rating: 4,
+        comment:
+          "Comfortable transport, great hotel choices, and enough flexibility for everyone in the family to enjoy the journey.",
+      },
     ],
 
     schedule: [
@@ -229,39 +285,106 @@ const coreTours: Tour[] = [
         day: 1,
         title: "Quy Nhon - Da Nang arrival & city discovery",
         summary: "Coastal arrival, Son Tra views, and Da Nang after dark.",
-        story: "Ease into Central Vietnam with a scenic coastal arrival, a quiet moment above the peninsula, and Da Nang sparkling along the Han River after sunset.",
+        story:
+          "Ease into Central Vietnam with a scenic coastal arrival, a quiet moment above the peninsula, and Da Nang sparkling along the Han River after sunset.",
         image: quyNhonDaNangHoiAnImages.myKhe,
         timeline: [
-          { time: "06:00 - 12:00", title: "Departure for Da Nang", description: "Gather at Quy Nhon Bus Station and depart for Da Nang." },
-          { time: "12:00 - 13:30", title: "Specialty lunch", description: "Enjoy a local lunch in Da Nang city center." },
-          { time: "13:30 - 14:30", title: "Hotel check-in", description: "Settle in and take an essential rest before the afternoon discoveries." },
-          { time: "14:30 - 16:30", title: "Son Tra Peninsula", description: "Visit Linh Ung Pagoda and Ban Co Peak for sweeping coastal views." },
-          { time: "16:30 - 18:00", title: "My Khe Beach", description: "Swim or stroll along the shore as the sun sets." },
-          { time: "18:00 - 19:30", title: "Refresh at the hotel", description: "Return to the hotel to shower and change for the evening." },
-          { time: "19:30 - 21:30", title: "Da Nang by night", description: "Seafood dinner followed by a gentle Han River cruise." },
+          {
+            time: "06:00 - 12:00",
+            title: "Departure for Da Nang",
+            description:
+              "Gather at Quy Nhon Bus Station and depart for Da Nang.",
+          },
+          {
+            time: "12:00 - 13:30",
+            title: "Specialty lunch",
+            description: "Enjoy a local lunch in Da Nang city center.",
+          },
+          {
+            time: "13:30 - 14:30",
+            title: "Hotel check-in",
+            description:
+              "Settle in and take an essential rest before the afternoon discoveries.",
+          },
+          {
+            time: "14:30 - 16:30",
+            title: "Son Tra Peninsula",
+            description:
+              "Visit Linh Ung Pagoda and Ban Co Peak for sweeping coastal views.",
+          },
+          {
+            time: "16:30 - 18:00",
+            title: "My Khe Beach",
+            description: "Swim or stroll along the shore as the sun sets.",
+          },
+          {
+            time: "18:00 - 19:30",
+            title: "Refresh at the hotel",
+            description:
+              "Return to the hotel to shower and change for the evening.",
+          },
+          {
+            time: "19:30 - 21:30",
+            title: "Da Nang by night",
+            description:
+              "Seafood dinner followed by a gentle Han River cruise.",
+          },
         ],
         tags: [
           "16-seater A/C coach",
           "Mi Quang / Rice paper",
           "Check in Pavilion hotel",
         ],
-
       },
 
       {
         day: 2,
         title: "Ba Na Hills & Hoi An Ancient Town",
-        summary: "Mountain cable cars followed by a lantern-lit Hoi An evening.",
-        story: "Today moves from cool mountain air to Hoi An’s warm lantern glow—two of Central Vietnam’s most memorable atmospheres in one day.",
+        summary:
+          "Mountain cable cars followed by a lantern-lit Hoi An evening.",
+        story:
+          "Today moves from cool mountain air to Hoi An’s warm lantern glow—two of Central Vietnam’s most memorable atmospheres in one day.",
         image: quyNhonDaNangHoiAnImages.haiVan,
         timeline: [
-          { time: "06:30 - 07:15", title: "Breakfast at the hotel", description: "Start the day with breakfast before heading west." },
-          { time: "07:15 - 08:30", title: "Hai Van Pass transfer", description: "Travel through the pass with a view over Lang Co Bay." },
-          { time: "08:30 - 09:30", title: "Continue to Ba Na Hills", description: "Arrive at the foothills and prepare for the cable car." },
-          { time: "09:30 - 15:00", title: "Ba Na Hills exploration", description: "Ride the cable car, explore French Village, and enjoy lunch on the mountain." },
-          { time: "15:00 - 17:15", title: "Return and refresh", description: "Return to the hotel for rest and a quick refresh." },
-          { time: "17:15 - 21:30", title: "Hoi An at lantern time", description: "Discover ancient houses, Hoi An Old Town, and a lantern boat experience." },
-          { time: "21:30", title: "Return to Da Nang", description: "Return to the Da Nang hotel for the night." },
+          {
+            time: "06:30 - 07:15",
+            title: "Breakfast at the hotel",
+            description: "Start the day with breakfast before heading west.",
+          },
+          {
+            time: "07:15 - 08:30",
+            title: "Hai Van Pass transfer",
+            description:
+              "Travel through the pass with a view over Lang Co Bay.",
+          },
+          {
+            time: "08:30 - 09:30",
+            title: "Continue to Ba Na Hills",
+            description:
+              "Arrive at the foothills and prepare for the cable car.",
+          },
+          {
+            time: "09:30 - 15:00",
+            title: "Ba Na Hills exploration",
+            description:
+              "Ride the cable car, explore French Village, and enjoy lunch on the mountain.",
+          },
+          {
+            time: "15:00 - 17:15",
+            title: "Return and refresh",
+            description: "Return to the hotel for rest and a quick refresh.",
+          },
+          {
+            time: "17:15 - 21:30",
+            title: "Hoi An at lantern time",
+            description:
+              "Discover ancient houses, Hoi An Old Town, and a lantern boat experience.",
+          },
+          {
+            time: "21:30",
+            title: "Return to Da Nang",
+            description: "Return to the Da Nang hotel for the night.",
+          },
         ],
         tags: [
           "Check in Lang Co Bay view",
@@ -270,25 +393,51 @@ const coreTours: Tour[] = [
           "Linh Chua Linh Tu Temple",
           "Check in Chua Cau, lantern boat",
         ],
-
       },
 
       {
         day: 3,
         title: "Da Nang highlights & departure",
         summary: "Beach moments, Marble Mountains, and the journey home.",
-        story: "Take a final slow look at the coast and craft villages before carrying the best parts of Central Vietnam home with you.",
+        story:
+          "Take a final slow look at the coast and craft villages before carrying the best parts of Central Vietnam home with you.",
         image: quyNhonDaNangHoiAnImages.daNangOverview,
         timeline: [
-          { time: "07:00 - 08:00", title: "Breakfast at the hotel", description: "Enjoy a final breakfast in Da Nang." },
-          { time: "08:00 - 08:30", title: "Check-out", description: "Check out and place luggage safely on the coach." },
-          { time: "08:30 - 09:30", title: "Cua Dai Beach", description: "Take a quiet beach stroll and capture a few final photos." },
-          { time: "09:30 - 11:30", title: "Marble Mountains", description: "Explore Marble Mountains and the craft village of Non Nuoc." },
-          { time: "11:30 - 13:00", title: "Lunch and Han Market", description: "Have chicken rice for lunch and browse Han Market." },
-          { time: "13:00", title: "Return to Quy Nhon", description: "Depart via Highway 1A and drop off at Quy Nhon Bus Station." },
+          {
+            time: "07:00 - 08:00",
+            title: "Breakfast at the hotel",
+            description: "Enjoy a final breakfast in Da Nang.",
+          },
+          {
+            time: "08:00 - 08:30",
+            title: "Check-out",
+            description: "Check out and place luggage safely on the coach.",
+          },
+          {
+            time: "08:30 - 09:30",
+            title: "Cua Dai Beach",
+            description:
+              "Take a quiet beach stroll and capture a few final photos.",
+          },
+          {
+            time: "09:30 - 11:30",
+            title: "Marble Mountains",
+            description:
+              "Explore Marble Mountains and the craft village of Non Nuoc.",
+          },
+          {
+            time: "11:30 - 13:00",
+            title: "Lunch and Han Market",
+            description: "Have chicken rice for lunch and browse Han Market.",
+          },
+          {
+            time: "13:00",
+            title: "Return to Quy Nhon",
+            description:
+              "Depart via Highway 1A and drop off at Quy Nhon Bus Station.",
+          },
         ],
         tags: ["Elevator up the mountain", "Shopping", "End of trip"],
-
       },
     ],
 

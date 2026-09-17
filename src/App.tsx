@@ -658,11 +658,11 @@ function Home() {
           </div>
           <div className="container hero-content">
             <p className="eyebrow light">Travel with intention</p>
-            <h1>
+            <h3>
               Find your way
               <br />
-              <em>through Vietnam.</em>
-            </h1>
+              <em>through the world.</em>
+            </h3>
             <p>
               Curated journeys, local stories, and thoughtful details for
               travellers who want to go a little deeper.
@@ -1764,7 +1764,7 @@ function PageHero({ title, image }: { title: string; image: string }) {
     >
       <div className="container">
         <p className="eyebrow light">2PAVE Tourist</p>
-        <h1>{title}</h1>
+        <h3>{title}</h3>
       </div>
     </section>
   );
@@ -1808,12 +1808,11 @@ function TourDetail() {
     );
 
   const tourGallery = tour.gallery?.length ? tour.gallery : [tour.image];
-  const departureOptions = (tour.departureSchedule || []).flatMap(
-    (departure) =>
-      departure.dates.map((date) => ({
-        date,
-        price: departure.price,
-      })),
+  const departureOptions = (tour.departureSchedule || []).flatMap((departure) =>
+    departure.dates.map((date) => ({
+      date,
+      price: departure.price,
+    })),
   );
   const bookingDeparture = selectedDeparture || departureOptions[0]?.date;
   const travellerReviews = tour.travellerReviews || [
@@ -1822,7 +1821,8 @@ function TourDetail() {
       name: "2PAVE traveller",
       travelStyle: "Verified guest",
       rating: Math.round(tour.rating),
-      comment: "A thoughtfully planned journey with memorable local experiences and excellent support throughout.",
+      comment:
+        "A thoughtfully planned journey with memorable local experiences and excellent support throughout.",
     },
   ];
 
@@ -1845,7 +1845,10 @@ function TourDetail() {
                 alt={tour.title}
               />
               {tourGallery.length > 1 && (
-                <div className="tour-hero-gallery" aria-label="Tour photo gallery">
+                <div
+                  className="tour-hero-gallery"
+                  aria-label="Tour photo gallery"
+                >
                   {tourGallery.map((image, index) => (
                     <button
                       type="button"
@@ -1868,7 +1871,9 @@ function TourDetail() {
 
               <h1>{tour.title}</h1>
 
-              <p className="tour-hero-tagline">{tour.tagline || tour.description}</p>
+              <p className="tour-hero-tagline">
+                {tour.tagline || tour.description}
+              </p>
 
               <div className="rating">
                 <Star size={16} fill="currentColor" />
@@ -1915,7 +1920,11 @@ function TourDetail() {
         <nav className="tour-detail-nav" aria-label="Tour detail navigation">
           <div className="container tour-detail-nav-inner">
             {tourNavItems.map(([id, label]) => (
-              <a className={activeTourNav === id ? "active" : ""} href={`#${id}`} key={id}>
+              <a
+                className={activeTourNav === id ? "active" : ""}
+                href={`#${id}`}
+                key={id}
+              >
                 {label}
               </a>
             ))}
@@ -1934,12 +1943,32 @@ function TourDetail() {
                   place feel real.
                 </p>
 
-                <div className="tour-quick-facts-card" aria-label="Tour quick facts">
-                  <div><small>Duration</small><strong>{tour.duration}</strong></div>
-                  <div><small>Departure</small><strong>{tour.departure}</strong></div>
-                  <div><small>Group</small><strong>{tour.groupSize || "Small group"}</strong></div>
-                  <div><small>Transport</small><strong>{tour.transport || "Comfortable transport"}</strong></div>
-                  <div><small>Stay</small><strong>{tour.accommodation || "Accommodation included"}</strong></div>
+                <div
+                  className="tour-quick-facts-card"
+                  aria-label="Tour quick facts"
+                >
+                  <div>
+                    <small>Duration</small>
+                    <strong>{tour.duration}</strong>
+                  </div>
+                  <div>
+                    <small>Departure</small>
+                    <strong>{tour.departure}</strong>
+                  </div>
+                  <div>
+                    <small>Group</small>
+                    <strong>{tour.groupSize || "Small group"}</strong>
+                  </div>
+                  <div>
+                    <small>Transport</small>
+                    <strong>{tour.transport || "Comfortable transport"}</strong>
+                  </div>
+                  <div>
+                    <small>Stay</small>
+                    <strong>
+                      {tour.accommodation || "Accommodation included"}
+                    </strong>
+                  </div>
                 </div>
 
                 {tour.departureSchedule && (
@@ -1951,33 +1980,46 @@ function TourDetail() {
                     {tour.departureSchedule
                       .slice(0, showAllDepartures ? undefined : 1)
                       .map((departure) => (
-                      <div className="tour-departures-row" key={departure.label}>
-                        <div>
-                          <strong>{departure.label}</strong>
-                          <div className="departure-date-options">
-                            {departure.dates.map((date) => (
-                              <button
-                                className={bookingDeparture === date ? "selected" : ""}
-                                type="button"
-                                onClick={() => setSelectedDeparture(date)}
-                                key={date}
-                              >
-                                {date}
-                              </button>
-                            ))}
+                        <div
+                          className="tour-departures-row"
+                          key={departure.label}
+                        >
+                          <div>
+                            <strong>{departure.label}</strong>
+                            <div className="departure-date-options">
+                              {departure.dates.map((date) => (
+                                <button
+                                  className={
+                                    bookingDeparture === date ? "selected" : ""
+                                  }
+                                  type="button"
+                                  onClick={() => setSelectedDeparture(date)}
+                                  key={date}
+                                >
+                                  {date}
+                                </button>
+                              ))}
+                            </div>
                           </div>
+                          <strong>{money(departure.price)}</strong>
                         </div>
-                        <strong>{money(departure.price)}</strong>
-                      </div>
-                    ))}
+                      ))}
                     {tour.departureSchedule.length > 1 && (
                       <button
-                        className={showAllDepartures ? "tour-show-more is-open" : "tour-show-more"}
+                        className={
+                          showAllDepartures
+                            ? "tour-show-more is-open"
+                            : "tour-show-more"
+                        }
                         type="button"
-                        onClick={() => setShowAllDepartures((isOpen) => !isOpen)}
+                        onClick={() =>
+                          setShowAllDepartures((isOpen) => !isOpen)
+                        }
                         aria-expanded={showAllDepartures}
                       >
-                        {showAllDepartures ? "Hide departure dates" : "View all departure dates"}
+                        {showAllDepartures
+                          ? "Hide departure dates"
+                          : "View all departure dates"}
                         <ChevronDown size={14} />
                       </button>
                     )}
@@ -1994,17 +2036,28 @@ function TourDetail() {
                     </ul>
                   </div>
                 )}
-
               </section>
 
               <section id="highlights" className="tour-content-section">
                 <p className="eyebrow">Made to remember</p>
                 <h2>Tour highlights</h2>
                 <div className="tour-highlight-cards">
-                  {(tour.highlightCards || tour.highlights?.map((title) => ({ icon: "✦", title, description: "A considered moment built into this journey." })) || []).map((highlight) => (
+                  {(
+                    tour.highlightCards ||
+                    tour.highlights?.map((title) => ({
+                      icon: "✦",
+                      title,
+                      description:
+                        "A considered moment built into this journey.",
+                    })) ||
+                    []
+                  ).map((highlight) => (
                     <article key={highlight.title}>
                       <span>{highlight.icon}</span>
-                      <div><h3>{highlight.title}</h3><p>{highlight.description}</p></div>
+                      <div>
+                        <h3>{highlight.title}</h3>
+                        <p>{highlight.description}</p>
+                      </div>
                     </article>
                   ))}
                 </div>
@@ -2049,7 +2102,10 @@ function TourDetail() {
                               </small>
 
                               <strong>{day.title}</strong>
-                              <em>{day.summary || `${day.timeline[0]?.time || "Flexible timing"} · ${day.timeline.length} planned moments`}</em>
+                              <em>
+                                {day.summary ||
+                                  `${day.timeline[0]?.time || "Flexible timing"} · ${day.timeline.length} planned moments`}
+                              </em>
                             </span>
 
                             <span className="itinerary-step-toggle">
@@ -2067,11 +2123,18 @@ function TourDetail() {
                                 />
                               )}
 
-                              {day.story && <p className="itinerary-day-story">{day.story}</p>}
+                              {day.story && (
+                                <p className="itinerary-day-story">
+                                  {day.story}
+                                </p>
+                              )}
 
                               <div className="day-timeline">
                                 {day.timeline.map((item) => (
-                                  <div className="day-timeline-item" key={`${item.time}-${item.title}`}>
+                                  <div
+                                    className="day-timeline-item"
+                                    key={`${item.time}-${item.title}`}
+                                  >
                                     <time>{item.time}</time>
                                     <div>
                                       <strong>{item.title}</strong>
@@ -2114,17 +2177,37 @@ function TourDetail() {
                 )}
               </section>
 
-              <section id="policies" className="tour-content-section tour-policies-section">
+              <section
+                id="policies"
+                className="tour-content-section tour-policies-section"
+              >
                 <p className="eyebrow">Book with confidence</p>
                 <h2>Tour policies</h2>
                 <div className="tour-policy-list">
-                  {(tour.policies || [
-                    { title: "Cancellation policy", description: "Cancellation terms are confirmed with your booking before payment." },
-                    { title: "Payment policy", description: "Reserve with a deposit and settle the remaining balance before departure." },
-                    { title: "Important notes", description: "The itinerary can be adjusted for weather and local operating conditions." },
-                  ]).map((policy, index) => (
+                  {(
+                    tour.policies || [
+                      {
+                        title: "Cancellation policy",
+                        description:
+                          "Cancellation terms are confirmed with your booking before payment.",
+                      },
+                      {
+                        title: "Payment policy",
+                        description:
+                          "Reserve with a deposit and settle the remaining balance before departure.",
+                      },
+                      {
+                        title: "Important notes",
+                        description:
+                          "The itinerary can be adjusted for weather and local operating conditions.",
+                      },
+                    ]
+                  ).map((policy, index) => (
                     <details key={policy.title} open={index === 0}>
-                      <summary>{policy.title}<ChevronDown size={18} /></summary>
+                      <summary>
+                        {policy.title}
+                        <ChevronDown size={18} />
+                      </summary>
                       <p>{policy.description}</p>
                     </details>
                   ))}
@@ -2192,7 +2275,8 @@ function TourDetail() {
                 ))}
               </div>
               <Link className="included-contact" to="/contact">
-                Need help choosing? Contact a consultant <ArrowRight size={14} />
+                Need help choosing? Contact a consultant{" "}
+                <ArrowRight size={14} />
               </Link>
             </aside>
           </div>
@@ -2203,21 +2287,44 @@ function TourDetail() {
               <h2>Frequently asked questions</h2>
               <div className="tour-faq-list">
                 <details open>
-                  <summary>What is included in the tour price?<ChevronDown size={18} /></summary>
-                  <p>Transportation, listed hotel stays, meals in the itinerary, attraction tickets, and a tour guide are included.</p>
+                  <summary>
+                    What is included in the tour price?
+                    <ChevronDown size={18} />
+                  </summary>
+                  <p>
+                    Transportation, listed hotel stays, meals in the itinerary,
+                    attraction tickets, and a tour guide are included.
+                  </p>
                 </details>
                 <details>
-                  <summary>How do I reserve my place?<ChevronDown size={18} /></summary>
-                  <p>Select “Book this tour” to send your preferred date and traveller details. Our consultant will confirm availability with you.</p>
+                  <summary>
+                    How do I reserve my place?
+                    <ChevronDown size={18} />
+                  </summary>
+                  <p>
+                    Select “Book this tour” to send your preferred date and
+                    traveller details. Our consultant will confirm availability
+                    with you.
+                  </p>
                 </details>
                 <details>
-                  <summary>Is this itinerary suitable for families?<ChevronDown size={18} /></summary>
-                  <p>Yes. The route is paced for comfortable sightseeing, with free time and family-friendly cultural experiences throughout.</p>
+                  <summary>
+                    Is this itinerary suitable for families?
+                    <ChevronDown size={18} />
+                  </summary>
+                  <p>
+                    Yes. The route is paced for comfortable sightseeing, with
+                    free time and family-friendly cultural experiences
+                    throughout.
+                  </p>
                 </details>
               </div>
             </section>
 
-            <section id="reviews" className="tour-content-section tour-reviews-section">
+            <section
+              id="reviews"
+              className="tour-content-section tour-reviews-section"
+            >
               <div className="tour-review-heading">
                 <p className="eyebrow">Traveller stories</p>
                 <h2>Guest reviews</h2>
@@ -2234,21 +2341,34 @@ function TourDetail() {
                 </div>
               </div>
               <div className="tour-review-list">
-                {travellerReviews.slice(0, showAllReviews ? undefined : 2).map((review) => (
-                  <article className="tour-review-card" key={review.name}>
-                    <span className="tour-review-stars">
-                      {Array.from({ length: review.rating }, (_, star) => <Star key={star} size={11} fill="currentColor" />)}
-                    </span>
-                    <blockquote>“{review.comment}”</blockquote>
-                    <div className="tour-reviewer">
-                      <span>{review.initials}</span>
-                      <p><strong>{review.name}</strong>{review.travelStyle}</p>
-                    </div>
-                  </article>
-                ))}
+                {travellerReviews
+                  .slice(0, showAllReviews ? undefined : 2)
+                  .map((review) => (
+                    <article className="tour-review-card" key={review.name}>
+                      <span className="tour-review-stars">
+                        {Array.from({ length: review.rating }, (_, star) => (
+                          <Star key={star} size={11} fill="currentColor" />
+                        ))}
+                      </span>
+                      <blockquote>“{review.comment}”</blockquote>
+                      <div className="tour-reviewer">
+                        <span>{review.initials}</span>
+                        <p>
+                          <strong>{review.name}</strong>
+                          {review.travelStyle}
+                        </p>
+                      </div>
+                    </article>
+                  ))}
                 {travellerReviews.length > 2 && (
-                  <button className="tour-all-reviews" type="button" onClick={() => setShowAllReviews((value) => !value)}>
-                    {showAllReviews ? "Show fewer reviews" : `View all ${tour.reviews} reviews`}
+                  <button
+                    className="tour-all-reviews"
+                    type="button"
+                    onClick={() => setShowAllReviews((value) => !value)}
+                  >
+                    {showAllReviews
+                      ? "Show fewer reviews"
+                      : `View all ${tour.reviews} reviews`}
                     <ArrowRight size={13} />
                   </button>
                 )}
@@ -2278,7 +2398,10 @@ function TourDetail() {
       </main>
 
       <button className="mobile-tour-booking" onClick={() => setBooking(true)}>
-        <span><small>From</small><strong>{money(tour.price)}</strong></span>
+        <span>
+          <small>From</small>
+          <strong>{money(tour.price)}</strong>
+        </span>
         Book now <ArrowRight size={16} />
       </button>
 
@@ -2344,7 +2467,9 @@ function BookingModal({
                     defaultValue={departure}
                   >
                     {departureOptions.map((date) => (
-                      <option value={date} key={date}>{date}</option>
+                      <option value={date} key={date}>
+                        {date}
+                      </option>
                     ))}
                   </select>
                 ) : (
@@ -2558,8 +2683,7 @@ function NewsDetail() {
   );
 }
 function About() {
-  const storyImage =
-    "/tours/quy-nhon-da-nang-hoi-an/Screenshot%202026-09-16%20192457.png";
+  const storyImage = "/tours/quy-nhon-da-nang-hoi-an/Cầu-Thuận-Phước-_02_-.png";
   const peopleCards = [
     {
       title: "Journey designers",
@@ -2588,11 +2712,11 @@ function About() {
           <div className="about-hero-overlay" />
           <div className="container about-hero-inner">
             <p className="eyebrow light">About 2PAVE</p>
-            <h1>
+            <h3>
               Travel with a little
               <br />
               <em>more meaning.</em>
-            </h1>
+            </h3>
             <p className="about-hero-copy">
               We design thoughtful journeys for people who want to understand a
               place, not simply pass through it.
@@ -2947,11 +3071,11 @@ function Contact() {
           <div className="contact-hero-v2-photo" />
           <div className="container contact-hero-v2-inner">
             <p className="eyebrow light">Start a conversation</p>
-            <h1>
+            <h3>
               Your next journey can start
               <br />
               <em>with a simple hello.</em>
-            </h1>
+            </h3>
             <p>
               Share what you have in mind — even if it is only a place, a date
               or a feeling. We will help turn it into a thoughtful route.
